@@ -5,6 +5,7 @@ import boyImage from './assets/boy.png';
 export default function App() {
   const [password, setPassword] = useState('');
   const [unlocked, setUnlocked] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(false);
 
   const SECRET = import.meta.env.VITE_SECRET_PASSWORD;
@@ -47,13 +48,22 @@ export default function App() {
               PASSWORD REQUIRED
             </h2>
             <form onSubmit={handleCheck} className="space-y-6">
-              <input
-                type="password"
-                placeholder="••••••••"
-                className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-4 text-white text-center outline-none focus:border-blue-500/50 transition-all"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
+              <div className="relative flex items-center">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder="•••••••••"
+                  className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-4 text-white text-center outline-none focus:border-blue-500/50 transition-all pr-12"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-4 text-white/40 hover:text-white transition-colors cursor-pointer"
+                >
+                  {showPassword ? <Eye size={20} /> : <EyeOff size={20} />}
+                </button>
+              </div>
               <button className="w-full bg-white text-gray-400 font-bold py-4 rounded-xl hover:bg-blue-600 hover:text-white transition-all cursor-pointer">
                 ACCESS
               </button>
