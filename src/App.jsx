@@ -60,7 +60,7 @@ export default function App() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 text-white/40 hover:text-white transition-colors cursor-pointer"
+                  className="absolute right-4 text-white/40 hover:text-white bg-black/50 cursor-pointer"
                 >
                   {showPassword ? <Eye size={20} /> : <EyeOff size={20} />}
                 </button>
