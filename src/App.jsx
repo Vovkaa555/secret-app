@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import boyImage from './assets/boy.png';
+import { Eye, EyeOff } from 'lucide-react';
 
 export default function App() {
   const [password, setPassword] = useState('');
@@ -52,7 +53,7 @@ export default function App() {
                 <input
                   type={showPassword ? 'text' : 'password'}
                   placeholder="•••••••••"
-                  className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-4 text-white text-center outline-none focus:border-blue-500/50 transition-all pr-12"
+                  className="w-full bg-black/50 border border-white/10 rounded-xl px-12 py-4 text-white text-center outline-none focus:border-blue-500/50 transition-all pr-12"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
